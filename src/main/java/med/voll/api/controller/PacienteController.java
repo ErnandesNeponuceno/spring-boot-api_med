@@ -2,6 +2,9 @@ package med.voll.api.controller;
 
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
+import med.voll.api.medico.DadoAtualizacaoMedico;
+import med.voll.api.paciente.DadosAtualizacaoPaciente;
 import med.voll.api.paciente.DadosCadastroPaciente;
 import med.voll.api.paciente.DadosListagemPaciente;
 import med.voll.api.paciente.Paciente;
@@ -32,6 +35,13 @@ public class PacienteController {
     @Transactional
     public void cadastrar(@RequestBody DadosCadastroPaciente dados) {
         repository.save(new Paciente(dados));
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados){
+        var paciente = repository.getReferenceById(dados.id());
+        paciente.atualizarInformacoes(dados);
     }
 
 }

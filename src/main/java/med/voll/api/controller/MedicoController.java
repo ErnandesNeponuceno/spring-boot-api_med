@@ -22,7 +22,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemMedico::new);
+        return repository.findAllByStatusTrue(paginacao).map(DadosListagemMedico::new);
     }
 
     @PostMapping
@@ -36,5 +36,12 @@ public class MedicoController {
     public void atualizar(@RequestBody @Valid DadoAtualizacaoMedico dados){
         var medico = repository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id){
+        var medico = repository.getReferenceById(id);
+        medico.desativar();
     }
 }
