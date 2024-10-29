@@ -1,0 +1,2 @@
+
+ALTER TABLE consulta MODIFY COLUMN data_hora DATETIME NULL;
