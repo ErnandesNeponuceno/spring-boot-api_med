@@ -1,9 +1,7 @@
 package med.voll.api.consulta;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-
 
 import java.time.LocalDateTime;
 

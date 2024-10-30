@@ -3,7 +3,6 @@ package med.voll.api.paciente;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;
-import med.voll.api.endereco.DadosEndereco;
 import med.voll.api.endereco.Endereco;
 
 
