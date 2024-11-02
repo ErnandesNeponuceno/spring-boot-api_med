@@ -1,12 +1,12 @@
-package med.voll.api.consulta;
+package med.voll.api.domain.consulta;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "consulta")
 @Table(name = "consulta")
+@Entity(name = "Consulta")
 @Getter
 @Setter
 @NoArgsConstructor

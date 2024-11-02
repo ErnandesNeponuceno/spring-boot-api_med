@@ -1,8 +1,8 @@
-package med.voll.api.consulta;
+package med.voll.api.domain.consulta;
 
 import lombok.Builder;
-import med.voll.api.medico.Medico;
-import med.voll.api.paciente.Paciente;
+import med.voll.api.domain.medico.Medico;
+import med.voll.api.domain.paciente.Paciente;
 import med.voll.api.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
