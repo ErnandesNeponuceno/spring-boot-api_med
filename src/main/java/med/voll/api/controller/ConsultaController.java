@@ -6,6 +6,7 @@ import med.voll.api.domain.consulta.ConsultaService;
 import med.voll.api.domain.consulta.DadosConsulta;
 import med.voll.api.repository.ConsultaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,9 +26,10 @@ public class ConsultaController {
         return consultaRepository.findAll();
     }
 
-    @PostMapping("/agendar")
+    @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosConsulta dados) {
+    public ResponseEntity cadastrar(@RequestBody DadosConsulta dados) {
         Consulta consulta = consultaService.agendarConsulta(dados);
+        return ResponseEntity.ok(consulta);
     }
 }
